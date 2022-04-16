@@ -16,6 +16,18 @@ Write JavaScript below that logs:
 
 */
 
+const getAllPElements = document.querySelectorAll('p');
+console.log(getAllPElements);
+
+const getFirstDiv = document.querySelector('.site-header');
+console.log(getFirstDiv);
+
+const getJumbotronText = document.getElementById('jumbotron-text')
+console.log(getJumbotronText)
+
+const primaryContent = document.querySelector('.primary-content');
+const primaryAll = primaryContent.querySelectorAll("p");
+console.log(primaryAll);
 
 /*
 Task 2
@@ -67,4 +79,3 @@ Create an array of 5 different colors.
 Using the same function in Task 3, every time the 'Change colour' button is clicked, the background color will be changed with the next color in the array.
 The next color when you are in the last color of the array will be the first color again.
 */
-
