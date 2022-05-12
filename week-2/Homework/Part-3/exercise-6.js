@@ -20,19 +20,19 @@ console.log(sequence);
 
 3. Create an object method with the name .addSkill() to be able to add skills from it
 
-4. Create a function to add a skill to all members in a list of mentors
+/* 4. Create a function to add a skill to all members in a list of mentors */
 
 function addSkill(mentors,newSkill){
-  //your code here
+  mentors.forEach(mentor => {mentor.addSkill(newSkill)}) 
 }
 
-5. Create a function to remove a skill to all members in a list of mentors
+/* 5. Create a function to remove a skill to all members in a list of mentors */
 
-function removeSkill(mentors,newSkill){
-  //your code here
+function removeSkill(mentors, newSkill) {
+  mentors.forEach(mentor => {mentor.removeSkill(newSkill)})
 }
 
-6. Create a function mentorWithMoreSkills() that returns the name of the mentor with more number of skills
+/* 6. Create a function mentorWithMoreSkills() that returns the name of the mentor with more number of skills
 
 7. Create an object method .addStudentLikes() that increments by one the attribute studentLikes
 
@@ -101,3 +101,21 @@ var mentors = [
 
 //YOUR CODE HERE
 
+mentors.forEach((mentor) => {
+  mentor.addSkill = function(newSkill) {
+    this.skills.push(newSkill)
+  }
+  if (mentor.skills.includes("React") && mentor.job.city === "Barcelona") {
+    console.log(`Hi, my name is ${mentor.firstName} ${mentor.lastName}. I work in Barcelona and i know React.`)
+  }
+  if (mentor.job.city ==="Barcelona") {
+    mentor.class = "Jun1"
+    mentor.skills.push("SQL")
+  }
+})
+
+function mentorWithMoreSkills(mentor) {
+  const skillsLength = Math.max(...mentors.map(mentor => mentor.skills.length))
+  const mentorWithMaxSkills = mentors.find(mentor => mentor.skills.length === skillsLength).firstName
+  return mentorWithMaxSkills
+}
