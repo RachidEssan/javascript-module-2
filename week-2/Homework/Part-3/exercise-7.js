@@ -41,9 +41,20 @@ var product2 = {
   price: 9.99,
   stock: 2
 };
+var product3 = {
+  id: 3,
+  name: "Smoothie Master 9000",
+  price: 29.99,
+  stock: 10
+};
+var product4 = {
+  id: 4,
+  name: "Popcorn Time XL",
+  price: 19.99,
+  stock: 5
+};
 
-products.push(product1);
-products.push(product2);
+products.push(product1, product2, product3, product4);
 
 var shoppingCart = {
   totalPrice: 0,
@@ -51,15 +62,21 @@ var shoppingCart = {
 };
 
 function addToShoppingCart(id){
-
+  shoppingCart.selectedProducts.push(products.find((product) => product.id === id));
+  let productPrice = products.filter((product) => product.id === id).map((product) => product.price)
+  shoppingCart.totalPrice += productPrice[0]
 }
 
 function removeFromShoppingCart(id){
-
+  shoppingCart.selectedProducts.pop(products.find((product) => product.id === id));
+  let productPrice = products.filter((product) => product.id === id).map((product) => product.price)
+  shoppingCart.totalPrice -= productPrice[0]
 }
 
 function shop(){
-
+  products.filter(product => product.name === shoppingCart.selectedProducts[0].name).map(product => product.stock -= 1)
+  shoppingCart.totalPrice = 0
+  shoppingCart.selectedProducts = []
 }
 
 //results
