@@ -5,8 +5,13 @@ const moviePosters = [
     "https://collider.com/wp-content/uploads/2016/04/conjuring-poster.jpg",
     "https://collider.com/wp-content/uploads/2016/04/kingsman-poster.jpg",
     "https://collider.com/wp-content/uploads/2016/04/black-swan-poster.jpg",
+    "https://collider.com/wp-content/uploads/2017/06/blackkklansman-poster.jpg",
+    "https://collider.com/wp-content/uploads/2017/06/baby-driver-poster.jpg",
+    "https://collider.com/wp-content/uploads/2017/06/mother-poster.jpg",
+    "https://collider.com/wp-content/uploads/2016/04/hunger-games-catching-fire-poster.jpg",
 ]
 
+const background = document.getElementById("background")
 const autoBackBtn = document.getElementById("auto-back-btn")
 const backBtn = document.getElementById("back-btn")
 const stopBtn = document.getElementById("stop-btn")
@@ -24,6 +29,7 @@ autoForwardBtn.addEventListener("click", autoForwardBtnEvent)
 
 function showPoster() {
     mainImg.src = moviePosters[index]
+    document.body.style.backgroundImage = 'url(' + moviePosters[index] + ')'
 }
 
 showPoster()
