@@ -21,9 +21,22 @@ img {
     box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.5);
 }
 
+.fade-in {
+    animation: fadeIn 2s ease-in-out;
+    animation-delay: 1s;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
 div {
     text-align: center;
-
 }
 
 button {
@@ -34,6 +47,10 @@ button {
     box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
     background-color: antiquewhite;
     border: none;
+}
+
+button:focus {
+    outline: none;
 }
 
 h1 {

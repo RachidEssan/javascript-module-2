@@ -27,9 +27,11 @@ stopBtn.addEventListener("click", stopBtnEvent)
 forwardBtn.addEventListener("click", forwardBtnEvent)  
 autoForwardBtn.addEventListener("click", autoForwardBtnEvent)
 
+
 function showPoster() {
     mainImg.src = moviePosters[index]
     document.body.style.backgroundImage = 'url(' + moviePosters[index] + ')'
+    mainImg.classList.add("fade-in")
 }
 
 showPoster()
