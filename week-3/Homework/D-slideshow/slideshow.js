@@ -31,14 +31,17 @@ autoForwardBtn.addEventListener("click", autoForwardBtnEvent)
 function showPoster() {
     mainImg.src = moviePosters[index]
     document.body.style.backgroundImage = 'url(' + moviePosters[index] + ')'
-    mainImg.classList.add("fade-in")
+    mainImg.classList.add("fade-in");
+    setTimeout(function(){
+        mainImg.classList.remove("fade-in");
+   }, 1000)
 }
 
 showPoster()
 
 function autoBackBtnEvent() {
     clearInterval(intervalId)
-    intervalId = setInterval(backBtnEvent, 1000)
+    intervalId = setInterval(backBtnEvent, 1500)
 }
 
 function backBtnEvent() {
@@ -59,10 +62,11 @@ function forwardBtnEvent() {
         index = 0
     }
     showPoster()
+    
 }
 
 function autoForwardBtnEvent() {
     clearInterval(intervalId)
-    intervalId = setInterval(forwardBtnEvent, 1000)
+    intervalId = setInterval(forwardBtnEvent, 1500)
 }
 
