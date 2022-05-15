@@ -60,8 +60,84 @@ var movies = [
 
 // create showMovies function
 
+const allMovies = document.querySelector("#all-movies")
+const numberOfMovies = document.querySelector("#movies-number")
+
+function showMovies(moviesArray) {
+  numberOfMovies.textContent = movies.length
+  moviesArray.forEach((movie) => {
+    const p = document.createElement("p");
+    p.textContent =  `${movie.title} directed by ${movie.director}`
+    allMovies.appendChild(p)
+})}
+
+function showNewMovie (movie) {
+  numberOfMovies.textContent = movies.length
+  const p = document.createElement("p");
+  p.textContent =  `${movie.title} directed by ${movie.director}`
+  allMovies.appendChild(p)
+}
 
 // create a new movie object for your favorite movie
 
+const myMovies = {
+    title: "Pulp Fiction",
+    director: "Quentin Tarantino",
+    type: "crime",
+    haveWatched: true,
+  }
+
+// create addMovies input
+
+const titleInput = document.createElement("input")
+titleInput.setAttribute("type", "text")
+titleInput.placeholder = " Title"
+titleInput.style.margin = "0px 5px 0px 0px"
+allMovies.appendChild(titleInput)
+
+const directorInput = document.createElement("input")
+directorInput.setAttribute("type", "text")
+directorInput.placeholder = " Director"
+directorInput.style.margin = "0px 5px 0px 0px"
+allMovies.appendChild(directorInput)
+
+const genreInput = document.createElement("input")
+genreInput.setAttribute("type", "text")
+genreInput.placeholder = " Genre"
+genreInput.style.margin = "0px 5px 0px 0px"
+allMovies.appendChild(genreInput)
+
+const submitBtn = document.createElement("button")
+submitBtn.innerHTML = "Submit"
+allMovies.appendChild(submitBtn)
+
+submitBtn.addEventListener("click", (e) => {
+  e.preventDefault()
+  const newMovie = {
+    title: titleInput.value,
+    director: directorInput.value,
+    type: genreInput.value,
+  }
+  addMovies(newMovie)
+  showNewMovie(newMovie)
+  console.log(movies)
+})
 
 // create addMovies function
+
+function addMovies(movie) {
+  movies.push(movie)
+}
+
+addMovies(myMovies)
+showMovies(movies)
+
+
+
+
+
+
+
+
+
+
