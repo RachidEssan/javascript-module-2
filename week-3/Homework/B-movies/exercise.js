@@ -107,6 +107,12 @@ genreInput.placeholder = " Genre"
 genreInput.style.margin = "0px 5px 0px 0px"
 allMovies.appendChild(genreInput)
 
+const watchedIt = document.createElement("input")
+watchedIt.setAttribute("type", "text")
+watchedIt.placeholder = " Have you watched it?"
+watchedIt.style.margin = "0px 5px 0px 0px"
+allMovies.appendChild(watchedIt)
+
 const submitBtn = document.createElement("button")
 submitBtn.innerHTML = "Submit"
 allMovies.appendChild(submitBtn)
@@ -118,9 +124,13 @@ submitBtn.addEventListener("click", (e) => {
     director: directorInput.value,
     type: genreInput.value,
   }
+  titleInput.value = ""
+  directorInput.value = ""
+  genreInput.value = ""
+  watchedIt.value = ""
+
   addMovies(newMovie)
-  showNewMovie(newMovie)
-  console.log(movies)
+  setTimeout(() => showNewMovie(newMovie), 2000)
 })
 
 // create addMovies function
@@ -130,7 +140,8 @@ function addMovies(movie) {
 }
 
 addMovies(myMovies)
-showMovies(movies)
+setTimeout(() => showMovies(movies), 1000)
+
 
 
 
